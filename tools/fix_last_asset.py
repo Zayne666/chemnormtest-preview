@@ -1,0 +1,2 @@
+import json,pathlib
+root=pathlib.Path(r'D:\pyproject\chemnorm'); p=root/'data/chemnorm/products.json'; d=json.loads(p.read_text(encoding='utf8')); [x.update(structure_image='assets/structures/70578-24-4.png') for x in d if x.get('structure_image')=='assets/structures/70578-24-4.svg']; p.write_text(json.dumps(d,ensure_ascii=False),encoding='utf8'); old=root/'assets/structures/70578-24-4 .svg'; old.unlink(missing_ok=True); print('fixed')
